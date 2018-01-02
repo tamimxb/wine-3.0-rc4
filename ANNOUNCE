@@ -1,0 +1,90 @@
+The Wine development release 3.0-rc4 is now available.
+
+What's new in this release (see below for details):
+  - Bug fixes only, we are in code freeze.
+
+The source is available from the following locations:
+
+  https://dl.winehq.org/wine/source/3.0/wine-3.0-rc4.tar.xz
+  http://mirrors.ibiblio.org/wine/source/3.0/wine-3.0-rc4.tar.xz
+
+Binary packages for various distributions will be available from:
+
+  https://www.winehq.org/download
+
+You will find documentation on https://www.winehq.org/documentation
+
+You can also get the current source directly from the git
+repository. Check https://www.winehq.org/git for details.
+
+Wine is available thanks to the work of many people. See the file
+AUTHORS in the distribution for the complete list.
+
+----------------------------------------------------------------
+
+Bugs fixed in 3.0-rc4 (total 12):
+
+  13355  Richedit very slowly open big text files
+  16505  BBC iPlayer Desktop: .desktop file confuses comments with command line
+  26851  Zoo Tycoon 2: Marine Mania demo installer fails
+  33722  Stereo IMA ADPCM encoding in WINE produces loud static instead of sound
+  34255  WinPolis 3.x: "Buy CDs" editbox does not automatically select all
+  37336  U-blox U-Center 8.11 crashes when importing or exporting config file
+  41070  "Call of Duty 4" does not start: heap issues
+  41209  The Magic School Bus Explores the Solar System: Error message asking for the game to be reinstalled
+  43971  Wine 2.20 Bcrypt compilation fails under older linux systems while Wine 2.0.3 compiles fine
+  44142  steamwebhelper.exe crashes on wine-stagining 2.21 because NtQueryInformationFile fails
+  44161  Possible incorrect string message in "dlls/kernel32/tests/volume.c" line 263
+  44218  Black displaying of all Wine stuffs with FreeBSD
+
+----------------------------------------------------------------
+
+Changes since 3.0-rc3:
+
+Alex Henrie (4):
+      msvcrt: Don't include MSVC 10.0+ math functions in SOs for older DLLs.
+      ddraw/tests: Recognise E_NOTIMPL returned from UpdateOverlay() on VMware as broken.
+      user32/tests: Fix OemKeyScan failures with input method editors.
+      user32/tests: Recognize undefined characters in OemKeyScan tests.
+
+Alexandre Julliard (7):
+      ntdll: Round the pthread stack size to a page boundary.
+      kernel32/tests: Build the dll path in the create_test_dll helper function.
+      kernel32/tests: Add tests for the ImageContainsCode flag.
+      kernel32/tests: Add tests for loading dlls of different 32/64 bitness.
+      kernel32/tests: Add missing todos for 64-bit.
+      ntdll: NtQuerySection takes SIZE_T parameters.
+      bcrypt: macOS version 10.8 is needed for encryption support.
+
+Andrey Gusev (1):
+      quartz/tests: Fix resource leak.
+
+Gijs Vermeulen (1):
+      msvcrt: Add _get_[winmajor|winminor|osver].
+
+Henri Verbeet (2):
+      ddraw/tests: Introduce an ARRAY_SIZE macro to ddraw7 as well.
+      ddraw/tests: Print driver and device information before running the tests.
+
+Michael Stefaniuc (2):
+      shell32/tests: Use the available ARRAY_SIZE() macro.
+      d3dx9/tests: Use the available ARRAY_SIZE() macro.
+
+Nikolay Sivov (10):
+      hlink/tests: Check return value (Coverity).
+      mlang/tests: Add some return value checks (Coverity).
+      taskschd: Fix a leak on error path (Coverity).
+      msxml3/tests: Add missing return value test (Coverity).
+      shell32: Fix SHGetFolderPathAndSubDir() trace message.
+      scrrun/tests: Add a helper to construct test file path.
+      usp10/tests: Add missing return value tests (Coverity).
+      comctl32/tests: Enable tests for version 6 imagelist serialization format.
+      comctl32/tests: Test some return values (Coverity).
+      user32/tests: Add some tests for A/W auto conversion in case of mismatching window vs dialog procedure types.
+
+Piotr Caban (1):
+      msvcrt: Remove unused variables.
+
+--
+Alexandre Julliard
+julliard@winehq.org
